@@ -1,11 +1,5 @@
 // ========== РАБОЧИЕ ПЕРЕМЕННЫЕ (ГЛОБАЛЬНЫЕ) =====================
 
-//управляющие сигналы с берега, значения от 0 до 255
-byte moveArray[MOVE_ARRAY_SIZE];
-byte camServArray[CAMSERV_ARRAY_SIZE];
-byte manArray[MAN_ARRAY_SIZE];
-byte toolsServArray[TOOLSSERV_ARRAY_SIZE];
-
 byte leakage=0;
 
 //пакеты данных, отправляемые на слейвы
