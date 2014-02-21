@@ -16,7 +16,7 @@ void vectornav_init()
   IMU.PrintErrors=false;
 }
 
-void i2c_init(byte address) //присоединяемся к шине I2C с адресом address
+void i2c_init(const byte address) //присоединяемся к шине I2C с адресом address
 {
   Serial.println("\nConnection Controller!");
   Wire.begin(address);
@@ -55,17 +55,9 @@ void i2c_init(byte address) //присоединяемся к шине I2C с а
 // ============= ОБРАБОТЧИК ГЛАВНОГО ПРЕРЫВАНИЯ ===============
 void main_interrupt()
 {
-  //long int start = millis();
-  
-
-  
-  //digitalWrite(DEBUG_PIN,HIGH);
   interrupts(); //разрешаем обработку других прерываний (Serial,i2c) внутри главного прерывания
 
   packet_request_and_reading(fromDepthSensorPacket,DEPTH_ADDRESS,FROM_DEPTH_SENSOR_DATA_SIZE,depthOutDebug);
-  
-  //noInterrupts();
-  
 
   parse_depth(); //Считываем значения глубины и скорости погружения в переменные feedbackDepth и feeedbackDepthSpeed, для комплексирования
 
@@ -74,12 +66,13 @@ void main_interrupt()
   to_hor_vma_packet_making();
   to_ver_vma_packet_making();
   to_servocont_packet_making();
+  // Здесь был загадочный баг, когда 3 последних элемента массива toServocontPacket надо было заполнять вручную, а не внутри функции
+  // иначе не работало
   toServocontPacket[TO_SERV_ROT_TOOL_LEFT] = control[con_ROTATION_TOOL_L];
   toServocontPacket[TO_SERV_ROT_TOOL_RIGHT] = control[con_ROTATION_TOOL_R];
   toServocontPacket[TO_SERVOCONT_DATA_SIZE] = checksum_calc(toServocontPacket,TO_SERVOCONT_DATA_SIZE);
   to_depth_packet_making();
 
-//interrupts();
   packet_sending(HORVMA_ADDRESS,toHorVmaPacket,TO_HORVMA_DATA_SIZE);
   packet_sending(VERVMA_ADDRESS,toVerVmaPacket,TO_VERVMA_DATA_SIZE);
   packet_sending(SERVOCONT_ADDRESS,toServocontPacket,TO_SERVOCONT_DATA_SIZE);
@@ -89,7 +82,7 @@ void main_interrupt()
   switch (slavePollCount)
   {
   case 3:
-    slavePollCount=0; //здесь не нужен Break !!!
+    slavePollCount=0; //здесь не нужен break, т.е. при переполнении slavePollCount - начинаем заново
 
   case 0:
     packet_request_and_reading(fromHorVmaPacket,HORVMA_ADDRESS,FROM_HORVMA_DATA_SIZE,horDebug);
@@ -108,23 +101,17 @@ void main_interrupt()
     break;
   }
 
-//to_hor_vma_packet_making();
-//  to_ver_vma_packet_making();
-//  to_servocont_packet_making();
-//  to_depth_packet_making();
-//  
+
   leakage = map(constrain(LEAK_THRESHOLD - analogRead(LEAK_PIN),0,LEAK_THRESHOLD),0,LEAK_THRESHOLD,0,255);
 
   report_making();
 
-
-  read_register(8);  //Yaw, Pitch, Roll
+// опрашиваем датчик положения
+  read_register(8);  // Yaw, Pitch, Roll
   read_register(19);  // Angular rates
   read_register(18);  // Accelerations
 
-
-
-
+// выводим сообщения отладочные сообщения, если требуется
   if (outDebug)
   {
     if (verDebug)
@@ -151,12 +138,8 @@ void main_interrupt()
       packet_printing(toDepthSensorPacket,TO_DEPTH_SENSOR_DATA_SIZE);
     }
   }
-
-
-
-
-
-  if (IMU.NewYPR)
+  // если пришли данные с датчика положения, то выводим их, если требуется
+  if (IMU.NewYPR)	// данные об углах
   {
     if (yprDebug)
     {
@@ -175,7 +158,7 @@ void main_interrupt()
     }
   }
 
-  if (IMU.NewAng)
+  if (IMU.NewAng)	// данные об угловых скоростях
   {
     if (gyroDebug)
     {
@@ -194,7 +177,7 @@ void main_interrupt()
     }
   }
 
-  if (IMU.NewAccel)
+  if (IMU.NewAccel)	// данные об ускорениях
   {
     if (accelDebug)
     {
@@ -217,7 +200,7 @@ void main_interrupt()
 
   
 
-  if (      depthInputDebug )
+  if ( depthInputDebug )
   {
 
     Serial.print("\nDepth: ");
@@ -228,9 +211,8 @@ void main_interrupt()
 
   slavePollCount++;
 
-  //Serial.println(leakage,DEC);
   digitalWrite(DEBUG_PIN,LOW);
-  //Serial.println(millis()-start);
+
 }
 
 
