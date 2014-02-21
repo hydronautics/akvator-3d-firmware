@@ -1,7 +1,7 @@
 Debug
-/*
+Visual Micro/
 
 *.atsuo
-
-
-Visual Micro/
+*.suo
+*.filters
+*.user
