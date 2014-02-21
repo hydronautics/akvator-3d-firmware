@@ -42,6 +42,10 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Arduino-1.0.5\hardware\arduino\cores\arduino;C:\Arduino-1.0.5\hardware\arduino\variants\mega;D:\Akvator-3D-firmware\libraries\MsTimer2;D:\Akvator-3D-firmware\libraries\MsTimer2\utility;C:\Arduino-1.0.5\libraries\Wire;C:\Arduino-1.0.5\libraries\Wire\utility;D:\Akvator-3D-firmware\libraries\I2CHeaders;D:\Akvator-3D-firmware\libraries\I2CHeaders\utility;c:\arduino-1.0.5\hardware\tools\avr\avr\include\;c:\arduino-1.0.5\hardware\tools\avr\avr\include\avr\;c:\arduino-1.0.5\hardware\tools\avr\avr\;c:\arduino-1.0.5\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>D:\Akvator-3D-firmware\depth_sensor\Visual Micro\.depth_sensor.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>__AVR_ATmega1280__;ARDUINO=101;ARDUINO_MAIN;__AVR__;__avr__;F_CPU=16000000L;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -62,6 +66,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="debug.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="depth_feedback.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="depth_i2c.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="depth_sensor.ino">
+      <FileType>CppCode</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="debug.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="depth_calculation_head.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="depth_global_variables.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="depth_i2c_head.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="external_ADC.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="Visual Micro\.depth_sensor.vsarduino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

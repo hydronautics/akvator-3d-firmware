@@ -32,6 +32,7 @@ location по умолчанию.
 // Размерности глобальных переменных определяются через дефайны, объявленные в предыдущем h-файле, поэтому их надо объявлять после i2c_packet_sizes_and_variables.h
 #include "global_variables.h" //глобальные переменные для функций бортового канала связи
 
+// это нужно, чтобы увеличить размер буфера UART для работы с датчиком положения
 #ifdef SERIAL_BUFFER_SIZE 
 	#if (SERIAL_BUFFER_SIZE != 128)
 		#define SERIAL_BUFFER_SIZE 128
@@ -103,7 +104,7 @@ void loop()
       break;
       
       case 'd':
-      depthDebug=!depthDebug;
+      depthOutDebug=!depthOutDebug;
       break;
       
       case 'e':
@@ -125,11 +126,6 @@ void loop()
       case 'x':
       depthInputDebug = !depthInputDebug;
       break;
-      
-      
-//      case 't':
-//      
-//      break;
     }
 
   }

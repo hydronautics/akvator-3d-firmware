@@ -62,7 +62,7 @@ void main_interrupt()
   //digitalWrite(DEBUG_PIN,HIGH);
   interrupts(); //разрешаем обработку других прерываний (Serial,i2c) внутри главного прерывания
 
-  packet_request_and_reading(fromDepthSensorPacket,DEPTH_ADDRESS,FROM_DEPTH_SENSOR_DATA_SIZE,depthDebug);
+  packet_request_and_reading(fromDepthSensorPacket,DEPTH_ADDRESS,FROM_DEPTH_SENSOR_DATA_SIZE,depthOutDebug);
   
   //noInterrupts();
   
@@ -145,7 +145,7 @@ void main_interrupt()
       packet_printing(toServocontPacket,TO_SERVOCONT_DATA_SIZE);
     }
 
-    if (depthDebug)
+    if (depthOutDebug)
     {
       Serial.print("\n2DEPTH: ");
       packet_printing(toDepthSensorPacket,TO_DEPTH_SENSOR_DATA_SIZE);

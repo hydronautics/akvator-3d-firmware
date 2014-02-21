@@ -4,7 +4,7 @@
 void debug_init() 
 {
   Serial.begin(DEBUG_BAUD);
-  Serial.println("\nCONNECTION CONTROLLER PROG, Hardware Serial, v15.06.13");
+  Serial.println("\nCONNECTION CONTROLLER PROG, Hardware Serial");
 }  
 
 

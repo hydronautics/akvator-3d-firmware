@@ -42,6 +42,10 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Arduino-1.0.5\hardware\arduino\cores\arduino;C:\Arduino-1.0.5\hardware\arduino\variants\mega;C:\Arduino-1.0.5\libraries\Wire;C:\Arduino-1.0.5\libraries\Wire\utility;D:\Akvator-3D-firmware\libraries\I2CHeaders;D:\Akvator-3D-firmware\libraries\I2CHeaders\utility;c:\arduino-1.0.5\hardware\tools\avr\avr\include\;c:\arduino-1.0.5\hardware\tools\avr\avr\include\avr\;c:\arduino-1.0.5\hardware\tools\avr\avr\;c:\arduino-1.0.5\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>D:\Akvator-3D-firmware\hor_VMA_slave\Visual Micro\.hor_VMA_slave.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>__AVR_ATmega1280__;ARDUINO=101;ARDUINO_MAIN;__AVR__;__avr__;F_CPU=16000000L;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -62,6 +66,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="control.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="flags.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="hor_feedback.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="hor_i2c.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="hor_VMA_slave.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="pwm_fix.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="SAU.ino">
+      <FileType>CppCode</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="control_head.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="debug.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="hor_global_variables.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="hor_i2c_head.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="Visual Micro\.hor_VMA_slave.vsarduino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

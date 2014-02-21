@@ -42,6 +42,10 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
       <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Arduino-1.0.5\hardware\arduino\cores\arduino;C:\Arduino-1.0.5\hardware\arduino\variants\mega;D:\Akvator-3D-firmware\libraries\IMU_VN100;D:\Akvator-3D-firmware\libraries\IMU_VN100\utility;C:\Arduino-1.0.5\libraries\Wire;C:\Arduino-1.0.5\libraries\Wire\utility;D:\Akvator-3D-firmware\libraries\I2CHeaders;D:\Akvator-3D-firmware\libraries\I2CHeaders\utility;c:\arduino-1.0.5\hardware\tools\avr\avr\include\;c:\arduino-1.0.5\hardware\tools\avr\avr\include\avr\;c:\arduino-1.0.5\hardware\tools\avr\avr\;c:\arduino-1.0.5\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>D:\Akvator-3D-firmware\Connection_controller\Visual Micro\.Connection_controller.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>__AVR_ATmega1280__;ARDUINO=101;ARDUINO_MAIN;__AVR__;__avr__;F_CPU=16000000L;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -62,6 +66,45 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="complex.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="conContr_functions.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="Connection_controller.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="debug.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="i2c.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="rs485.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="system_clock.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="vnav_communication.ino">
+      <FileType>CppCode</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="debug_head.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="global_variables.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="i2c_head.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="rs485_head.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="Visual Micro\.Connection_controller.vsarduino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

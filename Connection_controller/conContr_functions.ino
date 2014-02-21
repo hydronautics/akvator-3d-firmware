@@ -231,7 +231,7 @@ void control_init()
 {
   for (int i=0;i<=CONTROL_BYTES_AMOUNT;i++)
     control[i]=0;
-  control[con_CAMERA_POS]=128; 
+  control[con_CAMERA_POS]=128; // среднее положение камеры
 }
 
 
