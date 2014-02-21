@@ -17,13 +17,3 @@ byte fromDepthSensorPacket[FROM_DEPTH_SENSOR_DATA_SIZE+1]; //пакет данн
 
 byte slavePollCount=0; //номер слейва, опрашиваемого на текущем такте
 boolean inMainInterrupt=0;  //флаг факта входа в главное прерывание
-
-// ================ ОТЛАДОЧНЫЕ ПЕРЕМЕННЫЕ (ГЛОБАЛЬНЫЕ) ====================
-// Массивы, содержащие пакеты с фиксированными данными, сгенерированными специальными ф-ями типа fixed_hor_vma_packet_array_generating
-// Каждый массив имеет размер FIXED_PACKETS_AMOUNT. Каждый элемент массива - это пакет для рассылки одного из типовых размеров (напр. TO_HORVMA_DATA_SIZE+1)
-byte (toHorFixPackArray[FIXED_PACKETS_AMOUNT*2])[TO_HORVMA_DATA_SIZE+1];  //массив фиксированных пакетов для отправки на КГВМА
-byte (toVerFixPackArray[FIXED_PACKETS_AMOUNT])[TO_VERVMA_DATA_SIZE+1];  //массив фиксированных пакетов для отправки на КВВМА
-byte (toServFixPackArray[FIXED_PACKETS_AMOUNT])[TO_SERVOCONT_DATA_SIZE+1];//массив фиксировованных пакетов для отправки на контроллер сервомашинок
-byte (toDepthSensorFixPackArray[FIXED_PACKETS_AMOUNT])[TO_DEPTH_SENSOR_DATA_SIZE+1];// массив фиксированных пакетов для отправки на контроллер датчика глубины
-
-int fixedPacketCount=0; //номер текущего фиксированного пакета в массиве фиксированных пакетов

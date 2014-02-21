@@ -72,21 +72,3 @@ void read_buffer(byte packet[])
   }
 }
 
-// ============= ОТЛАДОЧНЫЕ ФУНКЦИИ ===========================
-
-//// Генерация рандомных значений (в пределах одного байта в элементах пакета packet[]
-//void random_packet_generating(byte *packet[], byte packetSize)
-//{
-//  byte checksum=0;
-//  for (int i=0;i < packetSize;i++)
-//  {
-//    *packet[i]=random(0,255);
-//    checksum^=*packet[i];
-//  };
-//  *packet[packetSize]=checksum;
-//}
-//
-////-------------------------------------------------------
-
-
-
