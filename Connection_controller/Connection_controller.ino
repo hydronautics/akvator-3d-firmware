@@ -98,8 +98,8 @@ void loop()
       break;
       
       case 'e':
-      errorsPrint=!errorsPrint;
-      if (errorsPrint)
+      vectorNavErrors=!vectorNavErrors;
+      if (vectorNavErrors)
         Serial.println("\nErrors Print is ON");
         else
         Serial.println("\nErrors Print is OFF");

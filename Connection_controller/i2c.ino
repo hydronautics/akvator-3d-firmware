@@ -170,7 +170,7 @@ void main_interrupt()
   } 
 
   else {  
-    if (errorsPrint) {
+    if (vectorNavErrors) {
       Serial.println("NoYPRData :(");
     }
   }
@@ -189,7 +189,7 @@ void main_interrupt()
   }
 
   else {  
-    if (errorsPrint) {
+    if (vectorNavErrors) {
       Serial.println("NoAngularData :(");
     }
   }
@@ -208,7 +208,7 @@ void main_interrupt()
   }
 
   else {  
-    if (errorsPrint) {
+    if (vectorNavErrors) {
       Serial.println("NoAccelData :(");
     }
   }
