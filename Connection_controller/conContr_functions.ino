@@ -35,7 +35,6 @@ void to_ver_vma_packet_making()
   toVerVmaPacket[TO_VER_COMPLEX_DEPTH_SPEED_LOW] = lowByte(feedbackDepthSpeed);
   
   toVerVmaPacket[TO_VER_SAU_BYTE] = (control[con_SAU_SWITCH] & ((1<<con_ROLL_PITCH_BIT)|(1<<con_DEPTH_BIT)))*85; //85 это 255/3. 
-  //toVerVmaPacket[TO_VER_COMPLEX_DEPTH_SPEED] = (control[con_SAU_SWITCH] & B00000011)*85; //85 это 255/3. 
 
   //потому что у нас максимум четыре состояния:
   // 00,01,10,11
@@ -212,7 +211,10 @@ void report_making()
 
 }
 //=========================================
-
+// преобразовать значение в градусах в целое число, 
+// умещающееся в char, т.е. 0 градусов ~ 0
+// 90 градусов ~ 127
+// -90 градусов ~ -128
 char float_to_char_90(float data)
 {
 
@@ -221,6 +223,9 @@ char float_to_char_90(float data)
   return (map(temp,-9000,9000,-128,127));
 }
 
+// преобразовать значение в градусах в целое число, равное
+// количеству сотых долей, 
+// например дробное значение 169.121236 градусов превращается в целое число 16912
 int float_to_int_180(float data)
 {
   return((int) (data*100.0)) ;
@@ -234,24 +239,12 @@ void control_init()
   control[con_CAMERA_POS]=128; // среднее положение камеры
 }
 
-
+//число в рад/с (максимум +- 3рад/с) становится в пределах ±30 000, т.е. с точностью до десятитысячных
 int angular_to_int(float data)
 {
-  return (int) (data*10000.0); //число в рад/с (максимум +- 3рад/с) становится в пределах ±30 000, т.е. с точностью до десятитысячных
+  return (int) (data*10000.0); 
 
 }
-
-//char angular_to_char(float data)
-//{
-// return map(constrain(data,-ANGULAR_RANGE,+ANGULAR_RANGE),-ANGULAR_RANGE,+ANGULAR_RANGE,-128.0,127.0);
-//  
-//}
-
-//char accel_to_char(float data)
-//{
-//  return map(constrain(data,-ACCEL_RANGE,+ACCEL_RANGE),-ACCEL_RANGE,+ACCEL_RANGE,-128.0,127.0);
-//
-//}
 
 
 
