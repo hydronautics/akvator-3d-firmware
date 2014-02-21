@@ -1,0 +1,46 @@
+#Constructor & class name
+IMU_Class	KEYWORD1
+
+#Instance name
+IMU	KEYWORD1
+
+#Internal variables, functions and methods a.k.a "private"
+IMU_checksum	KEYWORD2
+IMU_checksum_calc	KEYWORD2
+buffer	KEYWORD2
+bufferidx	KEYWORD2	
+parse_IMU	KEYWORD2
+parseHex	KEYWORD2
+parsedecimal	KEYWORD2
+parsenumber	KEYWORD2
+
+#External variables, functions and methods a.k.a  "public"
+Init	KEYWORD2
+Read	KEYWORD2
+Yaw	KEYWORD2
+YawUpper	KEYWORD2
+YawLower	KEYWORD2
+YawSign	KEYWORD2
+Pitch	KEYWORD2
+PitchUpper	KEYWORD2
+PitchLower	KEYWORD2 
+PitchSign	KEYWORD2
+Roll	KEYWORD2
+RollUpper	KEYWORD2 
+RollLower	KEYWORD2 
+RollSign	KEYWORD2
+Q	KEYWORD2
+Magnetic	KEYWORD2
+Acceleration	KEYWORD2
+Angular	KEYWORD2
+DCM	KEYWORD2
+Upper	KEYWORD2 
+Lower	KEYWORD2
+Sign	KEYWORD2
+	
+Type	KEYWORD2
+	
+NewData	KEYWORD2
+	
+PrintErrors	KEYWORD2
+

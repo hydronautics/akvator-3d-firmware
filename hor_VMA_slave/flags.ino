@@ -1,0 +1,9 @@
+#define FLAG_HLF_BIT HLF
+#define FLAG_HLB_BIT HLB
+#define FLAG_HRF_BIT HRF
+#define FLAG_HRB_BIT HRB
+
+#define FLAG_HLF_PIN 3
+#define FLAG_HLB_PIN 4
+#define FLAG_HRB_PIN A7
+#define FLAG_HRF_PIN A6
