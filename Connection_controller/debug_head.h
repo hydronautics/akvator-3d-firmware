@@ -1,25 +1,21 @@
 //********ОТЛАДКА ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ (ЗАГОЛОВОК)********//
 
 #include <Arduino.h>
-//Включение режимов отладки:
-//#define VNAV_DEBUG_ENABLED 1
-//#define FEEDBACK_DEBUG_ENABLED 0
-//#define I2C_DEBUG_ENABLE 0          // вывод сообщений кода i2c
 
-boolean yprDebug=false;
-boolean accelDebug=false;
-boolean gyroDebug=false;
-boolean feedbackDebug=false;
-boolean outDebug=false;
-boolean horDebug=false;
-boolean verDebug=false;
-boolean servDebug=false;
-boolean depthDebug=false;
-boolean errorsPrint=false;
+// флаги включения/выключения вывода различных отладочных сообщений
+boolean yprDebug=false;	// Yaw, Pitch, Roll - данные об углах с датчика положения
+boolean accelDebug=false;	// ускорение с датчика положения
+boolean gyroDebug=false;	// угловые скорости
+boolean feedbackDebug=false;	// данные от слейвов  к мастеру
+boolean outDebug=false;	// данные от мастера к слейвам, общий флаг для всех
+boolean horDebug=false;	// вкл/выкл данных от контроллера горизонталок
+boolean verDebug=false;	// от контроллера вертикалок
+boolean servDebug=false; // от контроллера приспособлений
+boolean depthDebug=false;	// данные от мастера до датчика глубины
+boolean errorsPrint=false;	// вывод ошибок датчика положения
 
-boolean depthInputDebug = false;
+boolean depthInputDebug = false;	// данные с датчика глубины
 
-#define PRINT_VNAV_ERRORS 1
 
 #define STATISTICS_PRINT_ENABLE 0   //отчёт о качестве передачи
 #define RS485_DEBUG_ENABLE 0        // вывод всей входящей информации 
