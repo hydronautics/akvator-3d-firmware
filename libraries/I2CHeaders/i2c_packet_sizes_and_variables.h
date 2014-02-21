@@ -9,66 +9,6 @@
 #define DEPTH_SCALE 15 // 15 мм на 1 деление АЦП из 1024, диапазон
 #define DEPTH_SCALE_ADC 3.75 //3/75 мм на деление 14-разрядного внешнего АЦП
 
-//---------- REGULATION DATA SIZES FROM THE COAST ============
-// Размеры переменных, хранящих данные с берега, в байтах.
-// Например, запись "#define REG_X_SPEED_SIZE 1" означает, что управление маршевой скоростью аппарата (задаваемой положением джойстика) хранится в переменной размером 1 байт и принимающей значения от 0 до 255
-#define REG_X_SPEED_SIZE 1 //1 byte
-#define REG_Y_SPEED_SIZE 1
-#define REG_Z_SPEED_SIZE 1 
-
-#define REG_YAW_SPEED_SIZE 1
-
-
-#define REG_SERVO1_SIZE 1
-#define REG_SERVO2_SIZE 1
-#define REG_GRAB_SIZE 1
-#define REG_JOINT1_SIZE 1
-#define REG_JOINT2_SIZE 1
-#define REG_SHOULDER_SIZE 1
-
-#define REG_LIGHT_SIZE 1
-
-
-#define REG_DEPTH_SAU_FLAG_SIZE 1
-#define REG_YAW_SAU_FLAG_SIZE 1
-#define REG_ROLL_SAU_FLAG_SIZE 1
-#define REG_PITCH_SAU_FLAG_SIZE 1
-
-
-#define TO_DEPTH_DATA1_SIZE 1
-
-//-------- FEEDBACK DATA FROM SENSORS -------------
-#define FEEDBACK_DEPTH_SIZE 2
-#define FEEDBACK_YAW_SIZE 2
-#define FEEDBACK_PITCH_SIZE 1
-#define FEEDBACK_ROLL_SIZE 1
-
-//-----------------------------------------
-//----- I2C PACKET SIZES-------------------
-
-//VERTICAL MOTION THRUSTER
-
-//#define TO_VERVMA_DATA_SIZE (REG_Z_SPEED_SIZE+REG_DEPTH_SAU_FLAG_SIZE+REG_PITCH_SAU_FLAG_SIZE+REG_ROLL_SAU_FLAG_SIZE)
-
-//#define FROM_VERVMA_DATA_SIZE 3
-
-//HORIZONTAL MOTION THRUSTER
-
-//#define TO_HORVMA_DATA_SIZE (REG_X_SPEED_SIZE+REG_Y_SPEED_SIZE+REG_YAW_SPEED_SIZE+REG_YAW_SAU_FLAG_SIZE)
-
-
-//#define FROM_HORVMA_DATA_SIZE 3
-
-//SERVOS CONTROLLER
-//#define TO_SERVOCONT_DATA_SIZE (REG_SERVO1_SIZE+REG_SERVO2_SIZE+REG_LIGHT_SIZE+REG_GRAB_SIZE+REG_JOINT1_SIZE+REG_JOINT2_SIZE+REG_SHOULDER_SIZE)
-
-#define FROM_SERVOCONT_DATA_SIZE 3
-
-//DEPTH SENSOR
-#define TO_DEPTH_SENSOR_DATA_SIZE (TO_DEPTH_DATA1_SIZE)
-
-//#define FROM_DEPTH_SENSOR_DATA_SIZE 3
-
 //------------I2C PACKET DATA OFFSETS-------------
 // TO VERVMA DATA OFFSETS
 #define TO_VER_Z_SPEED_OFFSET 0 //это значит, что в пакете, отправляемом на контроллер вертикальных вма, в ячейке toVerVmaPacket[0] находится управление по вертикальной скорости
@@ -128,6 +68,7 @@
 
 // TO DEPTH DATA OFFSETS
 #define TO_DEPTH_ACCEL_OFFSET 0
+#define TO_DEPTH_SENSOR_DATA_SIZE 1
 
 //-------I2C FEEDBACK DATA OFFSETS
 //Расположение данных в пакетах обратной связи, идущих от слейвов на мастер
@@ -169,6 +110,7 @@
 //===============================================
 #define FROM_SERVOCONT_CURRENTS_OFFSET 0
 #define FROM_SERVOCONT_FLAGS_OFFSET 1
+#define FROM_SERVOCONT_DATA_SIZE 2
 
 //------- VARIABLES POSITIONS IN THE DATA ARRAYS ----------
 // массив moveArray[] содержит данные об управлении движением аппарата с джойстика

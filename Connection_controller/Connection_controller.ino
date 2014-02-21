@@ -32,7 +32,6 @@ location по умолчанию.
 // Размерности глобальных переменных определяются через дефайны, объявленные в предыдущем h-файле, поэтому их надо объявлять после i2c_packet_sizes_and_variables.h
 #include "global_variables.h" //глобальные переменные для функций бортового канала связи
 
-//#define FELIX_LEARNED_TO_MAKE_SHITTY_SERIAL_PRINTS_ONLY_WITH_DEFINES_THAT_COULD_DISABLE_IT 1
 
 void setup() 
 {
