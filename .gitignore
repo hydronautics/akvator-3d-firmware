@@ -5,3 +5,7 @@ Visual Micro/
 *.suo
 *.filters
 *.user
+
+# ignore all folders except those, that are already commited
+*/
+
