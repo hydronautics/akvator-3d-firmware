@@ -9,4 +9,4 @@ Sketchbook Location и перезапустить Arduino IDE.
 
 При работе в Atmel Studio 6.1 с использованием Visual Micro, следует сделать то же самое.
 Панель инструментов Visual Micro -> Configuration Manager -> Optionally enter a sketchbook location,
-указать путь до рабочей копии.
+указать путь до рабочей копии, и перезапустить Atmel Studio.
