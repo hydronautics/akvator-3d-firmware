@@ -32,6 +32,15 @@ location по умолчанию.
 // Размерности глобальных переменных определяются через дефайны, объявленные в предыдущем h-файле, поэтому их надо объявлять после i2c_packet_sizes_and_variables.h
 #include "global_variables.h" //глобальные переменные для функций бортового канала связи
 
+#ifdef SERIAL_BUFFER_SIZE 
+	#if (SERIAL_BUFFER_SIZE != 128)
+		#define SERIAL_BUFFER_SIZE 128
+		#warning Serial Buffer Size was redefined and set to 128
+	#endif
+#else
+#define SERIAL_BUFFER_SIZE 128
+#warning Serial Buffer Size was undefined, now set to 128
+#endif
 
 void setup() 
 {
