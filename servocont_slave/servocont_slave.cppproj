@@ -28,15 +28,15 @@
     <BootSegment>0</BootSegment>
     <AsfFrameworkConfig>
       <framework-data>
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.3.0" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.3.0" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -370,6 +370,9 @@ vmresolved.tools.path=C:\Arduino-1.0.5\hardware\tools\avr
     <Compile Include="tools_control_head.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Visual Micro\.servocont_slave.vsarduino.h">
+      <SubType>compile</SubType>
+    </Compile>
     <None Include="servocont_slave.ino">
       <SubType>compile</SubType>
     </None>
@@ -388,9 +391,6 @@ vmresolved.tools.path=C:\Arduino-1.0.5\hardware\tools\avr
   </ItemGroup>
   <ItemGroup>
     <Compile Include="debug.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Visual Micro\.servocont_slave.vsarduino.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

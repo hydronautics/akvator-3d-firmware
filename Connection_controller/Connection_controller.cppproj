@@ -28,15 +28,15 @@
     <BootSegment>0</BootSegment>
     <AsfFrameworkConfig>
       <framework-data>
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.3.0" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.3.0" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -352,9 +352,6 @@ build.arch=AVR
     <Compile Include="rs485_head.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Visual Micro\.Connection_controller.vsarduino.h">
-      <SubType>compile</SubType>
-    </Compile>
     <None Include="Connection_controller.ino">
       <SubType>compile</SubType>
     </None>
@@ -368,6 +365,9 @@ build.arch=AVR
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="system_clock.ino">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Visual Micro\.Connection_controller.vsarduino.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="vnav_communication.ino">
