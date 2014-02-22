@@ -130,7 +130,7 @@ void packet_request_and_reading(byte packet[],int address,int howManyBytes,boole
 
       else
       {
-        if (vectorNavErrors) {
+        if (dataErrors) {
           Serial.print("\nWrong checksum from ");
           Serial.print(address,DEC);
           Serial.print(": ");
@@ -141,7 +141,7 @@ void packet_request_and_reading(byte packet[],int address,int howManyBytes,boole
     }
     else
     {
-      if (vectorNavErrors) {
+      if (dataErrors) {
         Serial.print('\n');
         Serial.print(receivedAmount);
         Serial.print(" IS A WRONG SIZE FROM");
@@ -151,7 +151,7 @@ void packet_request_and_reading(byte packet[],int address,int howManyBytes,boole
   }
   else
   {
-    if (vectorNavErrors) {
+    if (dataErrors) {
       Serial.print("\nNo response from: ");
       Serial.println(address,DEC);
     }

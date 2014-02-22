@@ -106,10 +106,7 @@ void main_interrupt()
 
   report_making();
 
-// опрашиваем датчик положения
-  read_register(8);  // Yaw, Pitch, Roll
-  read_register(19);  // Angular rates
-  read_register(18);  // Accelerations
+
 
 // выводим сообщения отладочные сообщения, если требуется
   if (outDebug)
@@ -153,7 +150,7 @@ void main_interrupt()
   } 
 
   else {  
-    if (vectorNavErrors) {
+    if (dataErrors) {
       Serial.println("NoYPRData :(");
     }
   }
@@ -172,7 +169,7 @@ void main_interrupt()
   }
 
   else {  
-    if (vectorNavErrors) {
+    if (dataErrors) {
       Serial.println("NoAngularData :(");
     }
   }
@@ -191,7 +188,7 @@ void main_interrupt()
   }
 
   else {  
-    if (vectorNavErrors) {
+    if (dataErrors) {
       Serial.println("NoAccelData :(");
     }
   }
@@ -210,6 +207,13 @@ void main_interrupt()
   }
 
   slavePollCount++;
+
+  // опрашиваем датчик положения
+  read_register(8);  // Yaw, Pitch, Roll
+  read_register(19);  // Angular rates
+  read_register(18);  // Accelerations
+
+  IMU.Read();
 
   digitalWrite(DEBUG_PIN,LOW);
 

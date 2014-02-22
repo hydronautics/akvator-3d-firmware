@@ -59,6 +59,7 @@ void setup()
 
 void loop() 
 {
+	IMU.Read();
   if (Serial.available())
   {
     switch (Serial.read())
@@ -108,8 +109,8 @@ void loop()
       break;
       
       case 'e':
-      vectorNavErrors=!vectorNavErrors;
-      if (vectorNavErrors)
+      dataErrors=!dataErrors;
+      if (dataErrors)
         Serial.println("\nErrors Print is ON");
         else
         Serial.println("\nErrors Print is OFF");
