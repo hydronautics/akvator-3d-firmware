@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1">
+    <root name="D:/Akvator-3D-firmware"/>
+    <includedir>
+        <dir name="C:/Arduino-1.0.5/hardware/arduino/cores/arduino/"/>
+        <dir name="C:/Arduino-1.0.5/libraries/"/>
+    </includedir>
+    <paths>
+        <dir name="D:/Akvator-3D-firmware/Connection_controller"/>
+        <dir name="D:/Akvator-3D-firmware/libraries"/>
+        <dir name="D:/Akvator-3D-firmware/libraries/I2CHeaders"/>
+    </paths>
+</project>
